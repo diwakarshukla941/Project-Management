@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Management System</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Project Management System</h1>
+            <button id="addProjectBtn" class="btn-primary">+ New Project</button>
+        </header>
+
+        <div class="dashboard">
+            <div class="stats-container">
+                <div class="stat-card">
+                    <h3>Active Projects</h3>
+                    <p id="activeProjects">0</p>
+                </div>
+                <div class="stat-card">
+                    <h3>Completed</h3>
+                    <p id="completedProjects">0</p>
+                </div>
+                <div class="stat-card">
+                    <h3>Upcoming Deadlines</h3>
+                    <p id="upcomingDeadlines">0</p>
+                </div>
+            </div>
+
+            <div class="chart-container">
+                <canvas id="progressChart"></canvas>
+            </div>
+        </div>
+
+        <div class="projects-container">
+            <div class="filters">
+                <select id="statusFilter">
+                    <option value="all">All Projects</option>
+                    <option value="active">Active</option>
+                    <option value="completed">Completed</option>
+                </select>
+                <input type="text" id="searchProject" placeholder="Search projects...">
+            </div>
+
+            <div id="projectsList" class="projects-list">
+                <!-- Projects will be dynamically added here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal for adding/editing projects -->
+    <div id="projectModal" class="modal">
+        <div class="modal-content">
+            <h2 id="modalTitle">Add New Project</h2>
+            <form id="projectForm">
+                <input type="text" id="projectName" placeholder="Project Name" required>
+                <textarea id="projectDescription" placeholder="Project Description" required></textarea>
+                <input type="date" id="projectDeadline" required>
+                <select id="projectType" required>
+                    <option value="assignment">Assignment</option>
+                    <option value="project">Course Project</option>
+                    <option value="research">Research Project</option>
+                    <option value="personal">Personal Project</option>
+                </select>
+                <div class="form-buttons">
+                    <button type="submit" class="btn-primary">Save Project</button>
+                    <button type="button" class="btn-secondary" id="cancelBtn">Cancel</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script type="module" src="/main.js"></script>
+</body>
+</html>
